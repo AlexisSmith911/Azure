@@ -1,0 +1,66 @@
+{
+ "$schema": "https://schema.management.azure.com/schemas/2019-08-01/subscriptionDeploymentTemplate.json#",
+ "contentVersion": "1.0.0.0",
+ "parameters": {
+  "mspOfferName": {
+   "type": "string",
+   "metadata": {
+    "description": "Specify a unique name for your offer"
+   },
+   "defaultValue": "NewClientOnboard"
+  },
+  "mspOfferDescription": {
+   "type": "string",
+   "metadata": {
+    "description": "Name of the Managed Service Provider offering"
+   },
+   "defaultValue": ""
+  }
+ },
+ "variables": {
+  "mspRegistrationName": "[guid(parameters('mspOfferName'))]",
+  "mspAssignmentName": "[guid(parameters('mspOfferName'))]",
+  "managedByTenantId": "0ec8998e-59ca-4c79-9a08-2949055d63f7",
+  "authorizations": [
+   {
+    "principalId": "714654c8-441d-46c8-a8c7-4cf04579c888",
+    "roleDefinitionId": "b24988ac-6180-42a0-ab88-20f7382dd24c",
+    "principalIdDisplayName": "Servant Tech Solutions"
+   }
+  ]
+ },
+ "resources": [
+  {
+   "type": "Microsoft.ManagedServices/registrationDefinitions",
+   "apiVersion": "2020-02-01-preview",
+   "name": "[variables('mspRegistrationName')]",
+   "properties": {
+    "registrationDefinitionName": "[parameters('mspOfferName')]",
+    "description": "[parameters('mspOfferDescription')]",
+    "managedByTenantId": "[variables('managedByTenantId')]",
+    "authorizations": "[variables('authorizations')]"
+   }
+  },
+  {
+   "type": "Microsoft.ManagedServices/registrationAssignments",
+   "apiVersion": "2020-02-01-preview",
+   "name": "[variables('mspAssignmentName')]",
+   "dependsOn": [
+    "[resourceId('Microsoft.ManagedServices/registrationDefinitions/', variables('mspRegistrationName'))]"
+   ],
+   "properties": {
+    "registrationDefinitionId": "[resourceId('Microsoft.ManagedServices/registrationDefinitions/', variables('mspRegistrationName'))]"
+   }
+  }
+ ],
+ "outputs": {
+  "mspOfferName": {
+   "type": "string",
+   "value": "[concat('Managed by', ' ', parameters('mspOfferName'))]"
+  },
+  "authorizations": {
+   "type": "array",
+   "value": "[variables('authorizations')]"
+  }
+ }
+}
