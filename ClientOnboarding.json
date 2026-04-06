@@ -5,14 +5,14 @@
     "mspOfferName": {
       "type": "string",
       "metadata": {
-        "description": "Specify a unique name for your offer"
+        "description": "Specify a unique name for your Lighthouse offer"
       },
       "defaultValue": "Grant DTS Access to Azure"
     },
     "mspOfferDescription": {
       "type": "string",
       "metadata": {
-        "description": "Name of the Managed Service Provider offering"
+        "description": "Description of the Managed Service Provider offering"
       },
       "defaultValue": "Grants the DTS team access to your Azure resources"
     }
@@ -26,15 +26,15 @@
         "principalId": "96530f14-1e8b-4a8c-9614-04d39c6ec91d",
         "principalIdDisplayName": "DTS Team",
         "principalType": "Group",
-        "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+        "roleDefinitionId": "b24988ac-6180-42a0-ab88-20f7382dd24c"
       },
       {
         "principalId": "96530f14-1e8b-4a8c-9614-04d39c6ec91d",
         "principalIdDisplayName": "DTS Team",
         "principalType": "Group",
-        "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
+        "roleDefinitionId": "18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
         "delegatedRoleDefinitionIds": [
-          "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+          "b24988ac-6180-42a0-ab88-20f7382dd24c"
         ]
       }
     ]
