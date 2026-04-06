@@ -4,16 +4,10 @@
   "parameters": {
     "mspOfferName": {
       "type": "string",
-      "metadata": {
-        "description": "Specify a unique name for your Lighthouse offer"
-      },
       "defaultValue": "Grant DTS Access to Azure"
     },
     "mspOfferDescription": {
       "type": "string",
-      "metadata": {
-        "description": "Description of the Managed Service Provider offering"
-      },
       "defaultValue": "Grants the DTS team access to your Azure resources"
     }
   },
