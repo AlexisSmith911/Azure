@@ -18,21 +18,23 @@
     }
   },
   "variables": {
-    "mspRegistrationName": "[guid(parameters('mspOfferName'))]",
-    "mspAssignmentName": "[guid(parameters('mspOfferName'))]",
+    "mspRegistrationName": "[guid(parameters('mspOfferName'), 'registration')]",
+    "mspAssignmentName": "[guid(parameters('mspOfferName'), 'assignment')]",
     "managedByTenantId": "67a092bc-a547-4544-9e62-62a94d7be9ce",
     "authorizations": [
       {
         "principalId": "3d0658c5-2d20-4ada-bba9-9e44d1d3a648",
-        "roleDefinitionId": "b24988ac-6180-42a0-ab88-20f7382dd24c",
-        "principalIdDisplayName": "Divine Tech"
+        "principalIdDisplayName": "Divine Tech",
+        "principalType": "Group",
+        "roleDefinitionId": "b24988ac-6180-42a0-ab88-20f7382dd24c"
       },
       {
         "principalId": "3d0658c5-2d20-4ada-bba9-9e44d1d3a648",
-        "roleDefinitionId": "18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
         "principalIdDisplayName": "Divine Tech",
+        "principalType": "Group",
+        "roleDefinitionId": "18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
         "delegatedRoleDefinitionIds": [
-          "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+          "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c')]"
         ]
       }
     ]
@@ -64,7 +66,7 @@
   "outputs": {
     "mspOfferName": {
       "type": "string",
-      "value": "[concat('Managed by', ' ', parameters('mspOfferName'))]"
+      "value": "[concat('Managed by ', parameters('mspOfferName'))]"
     },
     "authorizations": {
       "type": "array",
