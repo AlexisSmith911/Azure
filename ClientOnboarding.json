@@ -7,14 +7,14 @@
       "metadata": {
         "description": "Specify a unique name for your offer"
       },
-      "defaultValue": "Grant DTS Owner Access"
+      "defaultValue": "Grant DTS Access to Azure"
     },
     "mspOfferDescription": {
       "type": "string",
       "metadata": {
         "description": "Name of the Managed Service Provider offering"
       },
-      "defaultValue": ""
+      "defaultValue": "Grants the DTS team access to your Azure resources"
     }
   },
   "variables": {
@@ -23,14 +23,14 @@
     "managedByTenantId": "67a092bc-a547-4544-9e62-62a94d7be9ce",
     "authorizations": [
       {
-        "principalId": "3d0658c5-2d20-4ada-bba9-9e44d1d3a648",
-        "principalIdDisplayName": "Divine Tech",
+        "principalId": "96530f14-1e8b-4a8c-9614-04d39c6ec91d",
+        "principalIdDisplayName": "DTS Team",
         "principalType": "Group",
         "roleDefinitionId": "b24988ac-6180-42a0-ab88-20f7382dd24c"
       },
       {
-        "principalId": "3d0658c5-2d20-4ada-bba9-9e44d1d3a648",
-        "principalIdDisplayName": "Divine Tech",
+        "principalId": "96530f14-1e8b-4a8c-9614-04d39c6ec91d",
+        "principalIdDisplayName": "DTS Team",
         "principalType": "Group",
         "roleDefinitionId": "18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
         "delegatedRoleDefinitionIds": [
