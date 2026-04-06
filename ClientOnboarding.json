@@ -7,7 +7,7 @@
    "metadata": {
     "description": "Specify a unique name for your offer"
    },
-   "defaultValue": "ClientAzureOnboarding"
+   "defaultValue": "Grant DTS Owner Access"
   },
   "mspOfferDescription": {
    "type": "string",
@@ -23,16 +23,21 @@
   "managedByTenantId": "67a092bc-a547-4544-9e62-62a94d7be9ce",
   "authorizations": [
    {
-    "principalId": "96530f14-1e8b-4a8c-9614-04d39c6ec91d",
+    "principalId": "3d0658c5-2d20-4ada-bba9-9e44d1d3a648",
     "roleDefinitionId": "b24988ac-6180-42a0-ab88-20f7382dd24c",
-    "principalIdDisplayName": "DTS Team"
+    "principalIdDisplayName": "Divine Tech"
+   },
+   {
+    "principalId": "3d0658c5-2d20-4ada-bba9-9e44d1d3a648",
+    "roleDefinitionId": "18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
+    "principalIdDisplayName": "Divine Tech"
    }
   ]
  },
  "resources": [
   {
    "type": "Microsoft.ManagedServices/registrationDefinitions",
-   "apiVersion": "2020-02-01-preview",
+   "apiVersion": "2022-10-01",
    "name": "[variables('mspRegistrationName')]",
    "properties": {
     "registrationDefinitionName": "[parameters('mspOfferName')]",
@@ -43,7 +48,7 @@
   },
   {
    "type": "Microsoft.ManagedServices/registrationAssignments",
-   "apiVersion": "2020-02-01-preview",
+   "apiVersion": "2022-10-01",
    "name": "[variables('mspAssignmentName')]",
    "dependsOn": [
     "[resourceId('Microsoft.ManagedServices/registrationDefinitions/', variables('mspRegistrationName'))]"
